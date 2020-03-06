@@ -39,9 +39,11 @@ int main() {
     py::object state = env.attr("reset")();
     py::array_t<double, py::array::c_style | py::array::forcecast> st(state);
     std::vector<double> array_vec(st.size());
-    std::memcpy(array_vec.data(), st.data(), st.size() * sizeof(double));
+    auto stt = new double [st.size()];
+    std::memcpy(stt, st.data(), st.size() * sizeof(double));
+//    std::memcpy(array_vec.data(), st.data(), st.size() * sizeof(double));
     for (int i = 0; i < 4; i++)
-        std::cout << array_vec[i] << std::endl;
+        std::cout << stt[i] << std::endl;
 
     py::list nst_or = env.attr("step")(1);
     py::array_t<double, py::array::c_style | py::array::forcecast> nst_tr(nst_or[0]);
@@ -50,10 +52,10 @@ int main() {
     for (int i = 0; i < 4; i++)
         std::cout << nst[i] << std::endl;
     std::cout << py::cast<double>(nst_or[1]) << " " << py::cast<bool>(nst_or[2]) << std::endl;
-
-    env.attr("close")();
-//    env.attr("render")(2);
-    return 0;
+//
+//    env.attr("close")();
+////    env.attr("render")(2);
+//    return 0;
 }
 
 //import time
