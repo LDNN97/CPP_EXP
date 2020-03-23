@@ -15,10 +15,9 @@ vector<size_t> sort_indexes(const vector<T> &v) {
 }
 
 int main() {
-    vector<int> v(5);
-    v = {1, 3, 2, 5, 4};
+    vector<int> v(30);
+    v = {-11, -11, -11, -11, -11, -11,-11, -11, -11, -11, -11, -11,-11, -11, -11, -11, -11, -11,-11, -11, -11, -11, -11, -1,-11, -11, -11, -11, -11, -11};
     for (auto i: sort_indexes(v)) {
         cout << i << " " << v[i] << endl;
     }
 }
-

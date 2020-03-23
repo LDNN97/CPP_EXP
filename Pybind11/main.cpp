@@ -35,6 +35,10 @@ namespace py = pybind11;
 
 int main() {
     py::scoped_interpreter guard{};
+    py::object mine = py::module::import("py_m");
+    py::object indi = mine.attr("cla")();
+    indi.attr("print")();
+//    indi.attr("print")();
 //    py::object gym = py::module::import("gym");
 //    py::object env = gym.attr("make")("CartPole-v1");
 
@@ -71,23 +75,23 @@ int main() {
 //    env.attr("close")();
 //    env.attr("render")(2);
 //    return 0;
-    int n[10];
-    for (int i = 0; i < 10; i++)
-        n[i] = i;
-    std::array<double, 10> nn {};
-    for (int i = 0; i < 10; i++) nn[i] = n[i];
-//    std::for_each(nn.begin(), nn.end(), [&j, n](int &v){v = n[j++];});
-    for (auto item : nn)
-        std::cout << item << std::endl;
-
-    std::array<double, 10> nn2 {};
-    for (int i = 0; i < 10; i++) nn2[i] = i * i;
-
-    py::object n1 = py::cast(nn);
-    py::object n2 = py::cast(nn2);
-    py::object plt = py::module::import("matplotlib.pyplot");
-    plt.attr("plot")(n1,"r", n2, "b");
-    plt.attr("show")();
+//    int n[10];
+//    for (int i = 0; i < 10; i++)
+//        n[i] = i;
+//    std::array<double, 10> nn {};
+//    for (int i = 0; i < 10; i++) nn[i] = n[i];
+////    std::for_each(nn.begin(), nn.end(), [&j, n](int &v){v = n[j++];});
+//    for (auto item : nn)
+//        std::cout << item << std::endl;
+//
+//    std::array<double, 10> nn2 {};
+//    for (int i = 0; i < 10; i++) nn2[i] = i * i;
+//
+//    py::object n1 = py::cast(nn);
+//    py::object n2 = py::cast(nn2);
+//    py::object plt = py::module::import("matplotlib.pyplot");
+//    plt.attr("plot")(n1,"r", n2, "b");
+//    plt.attr("show")();
 }
 
 //import time
