@@ -35,14 +35,18 @@ namespace py = pybind11;
 
 int main() {
     py::scoped_interpreter guard{};
-    py::object mine = py::module::import("py_m");
-    py::object indi = mine.attr("cla")();
-    indi.attr("print")();
+//    py::object mine = py::module::import("py_m");
+//    py::object indi = mine.attr("cla")();
 //    indi.attr("print")();
-//    py::object gym = py::module::import("gym");
-//    py::object env = gym.attr("make")("CartPole-v1");
+//    indi.attr("print")();
+    py::object gym = py::module::import("gym");
+    py::object env = gym.attr("make")("CartPole-v1");
 
-//    py::object state = env.attr("reset")();
+    std::array<double, 4> st{};
+    py::object state = env.attr("reset")();
+    st = state.cast<std::array<double, 4>>();
+    for (int i = 0; i < 4; i++)
+        std::cout << st[i] << std::endl;
 //    py::array_t<double, py::array::c_style | py::array::forcecast> st(state);
 //    std::vector<double> array_vec(st.size());
 //    auto stt = new double [st.size()];
