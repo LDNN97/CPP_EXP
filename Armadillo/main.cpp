@@ -9,8 +9,7 @@ using namespace arma;
 
 // NOTE: the C++11 "auto" keyword is not recommended for use with Armadillo objects and functions
 
-int
-main(int argc, char** argv)
+int main(int argc, char** argv)
 {
     cout << "Armadillo version: " << arma_version::as_string() << endl;
 
