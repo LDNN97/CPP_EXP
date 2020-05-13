@@ -1,5 +1,5 @@
 cmake_minimum_required(VERSION 3.15)
-project(PyTorch)
+project(LibTorch)
 
 set(CMAKE_CXX_STANDARD 17)
 set (CMAKE_PREFIX_PATH ./libtorch)
@@ -18,6 +18,6 @@ endif()
 
 find_package(Torch REQUIRED)
 
-add_executable(PyTorch main.cpp)
-target_link_libraries(PyTorch "${TORCH_LIBRARIES}")
-set_property(TARGET PyTorch PROPERTY CXX_STANDARD 14)
+add_executable(LibTorch main.cpp)
+target_link_libraries(LibTorch "${TORCH_LIBRARIES}")
+set_property(TARGET LibTorch PROPERTY CXX_STANDARD 14)
